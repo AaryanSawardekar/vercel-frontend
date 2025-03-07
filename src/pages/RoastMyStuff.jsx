@@ -72,10 +72,8 @@ function RoastMyStuff() {
     }
   };
 // new code:
-const API_URL = import.meta.env.VITE_API_URL.endsWith('/') 
-  ? import.meta.env.VITE_API_URL.slice(0, -1) 
-  : import.meta.env.VITE_API_URL;
-  
+const API_URL = import.meta.env.VITE_API_URL;
+
 console.log("API URL being used:", API_URL);
   const handleResumeSubmit = async (e) => {
     e.preventDefault();
@@ -125,7 +123,6 @@ console.log("API URL being used:", API_URL);
 
     try {
       const response = await axios.post(
-        // "http://localhost:5000/api/roast-project",
         `${API_URL}/api/roast-project`,
         {
           projectDescription,
