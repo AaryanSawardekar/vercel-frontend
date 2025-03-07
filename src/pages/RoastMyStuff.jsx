@@ -71,7 +71,8 @@ function RoastMyStuff() {
       setError("Please select a valid PDF or DOCX file");
     }
   };
-
+// new code:
+const API_URL = import.meta.env.VITE_API_URL;
   const handleResumeSubmit = async (e) => {
     e.preventDefault();
     if (!file) {
@@ -89,7 +90,7 @@ function RoastMyStuff() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/roast-resume",
+        `${API_URL}/api/roast-resume`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -120,7 +121,8 @@ function RoastMyStuff() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/roast-project",
+        // "http://localhost:5000/api/roast-project",
+        `${API_URL}/api/roast-project`,
         {
           projectDescription,
           projectLink,
