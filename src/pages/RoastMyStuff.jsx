@@ -72,7 +72,10 @@ function RoastMyStuff() {
     }
   };
 // new code:
-const API_URL = import.meta.env.VITE_API_URL || "https://megahack-5-0-backend.vercel.app";
+const API_URL = import.meta.env.VITE_API_URL.endsWith('/') 
+  ? import.meta.env.VITE_API_URL.slice(0, -1) 
+  : import.meta.env.VITE_API_URL;
+  
 console.log("API URL being used:", API_URL);
   const handleResumeSubmit = async (e) => {
     e.preventDefault();
